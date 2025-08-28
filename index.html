@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ff6b8b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cpath fill='%23ff6b8b' d='M90 15C44.8 15 15 44.8 15 90s29.8 75 75 75 75-29.8 75-75S135.2 15 90 15zm30.2 115.2L90 135.8l-30.2-5.6c-1.8-.3-3.5.8-4.1 2.5l-15.6 31.3c-.6 1.8.3 3.5 2.1 4.3l25.6 10.5c1.8.7 3.8.7 5.6 0l25.6-10.5c1.8-.7 2.7-2.5 2.1-4.3l-15.6-31.3c-.6-1.8-2.2-2.8-4-2.5z'/%3E%3C/svg%3E">
+    <title>七夕情人节祝福</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script.js" defer></script>
+    <style>
+        .current-time, .next-qixi {
+            text-align: center;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        .current-time h3, .next-qixi h3 {
+            color: #ff6b8b;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        .current-time p, .next-qixi p {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(255, 107, 139, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>七夕情人节快乐</h1>
+            <p class="subtitle">愿天下有情人终成眷属</p>
+
+            <div class="countdown">
+                <h3>距离下一个七夕还有</h3>
+                <div class="countdown-timer">
+                    <div class="timer-box">
+                        <span id="days">00</span>
+                        <span class="label">天</span>
+                    </div>
+                    <div class="timer-box">
+                        <span id="hours">00</span>
+                        <span class="label">时</span>
+                    </div>
+                    <div class="timer-box">
+                        <span id="minutes">00</span>
+                        <span class="label">分</span>
+                    </div>
+                    <div class="timer-box">
+                        <span id="seconds">00</span>
+                        <span class="label">秒</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="current-time">
+                <h3>当前时间</h3>
+                <p id="current-datetime"></p>
+            </div>
+            
+            <div class="next-qixi">
+                <h3>下一个七夕节</h3>
+                <p id="next-qixi-datetime"></p>
+            </div>
+        </header>
+
+        <main>
+            <div class="hearts-container"></div>
+
+            <!-- 3D相册模块 -->
+            <div class="gallery-section">
+                <h2>我们的爱情相册</h2>
+                <div id="photo-gallery" class="photo-gallery"></div>
+                <div class="gallery-controls">
+                    <button id="prev-photo" class="btn btn-secondary"><i class="fas fa-chevron-left"></i></button>
+                    <button id="next-photo" class="btn btn-secondary"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="wish-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-heart"></i>
+                        <h2>点击打开我的祝福</h2>
+                    </div>
+                    <div class="card-back">
+                        <p id="wish-message">愿我们的爱情像牛郎织女一样，跨越所有障碍，永远相守。七夕快乐！</p>
+                        <div class="stars"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wish-form">
+                <div class="memory-access">
+                    <button id="view-memories" class="btn">查看爱情记忆</button>
+                </div>
+                <div id="couple-calendar"></div>
+                <div id="love-timer" class="love-timer">
+                    <h4>相爱天数</h4>
+                    <div id="love-counter"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p class="romantic-text">柳蓉笙专属&柳洛梦赠柳蓉笙</p>
+        </footer>
+    </div>
+<!-- 删除确认模态窗 -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <h3>确认删除</h3>
+            <p>确定要删除这段记忆吗？</p>
+            <div class="modal-buttons">
+                <button id="confirm-delete" class="btn">确认</button>
+                <button id="cancel-delete" class="btn">取消</button>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>

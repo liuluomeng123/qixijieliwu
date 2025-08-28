@@ -1,0 +1,1730 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #ff99cc, #6666ff);
+    min-height: 100vh;
+    color: #fff;
+    overflow-x: hidden;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 头部样式 */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    display: inline-block;
+}
+
+header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #fff, transparent);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-top: 15px;
+}
+
+/* 主内容区域 */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 20px 0;
+}
+
+/* 卡片样式 */
+.wish-card {
+    width: 320px;
+    height: 450px;
+    perspective: 1000px;
+    cursor: pointer;
+    margin: 20px auto;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.card-front {
+    background: linear-gradient(to bottom right, #ff6b8b, #ff8fa3);
+}
+
+.card-back {
+    background: linear-gradient(to bottom right, #4a6fa5, #5b86e5);
+    transform: rotateY(180deg);
+}
+
+.card-front i {
+    font-size: 5rem;
+    color: white;
+    margin-bottom: 30px;
+    animation: pulse 2s infinite;
+}
+
+.card-front h2 {
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#wish-message {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 表单样式 */
+.wish-form {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.wish-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+#message-input {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    resize: none;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+/* 通用按钮样式 */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #ff6b8b, #ff4757);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #ff4757, #ff6b8b);
+}
+
+.btn-secondary {
+    background: linear-gradient(to right, #4a6fa5, #5b86e5);
+    color: white;
+}
+
+/* 按钮点击反馈效果 */
+.btn-active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #5b86e5, #4a6fa5);
+}
+
+.btn-accent {
+    background: linear-gradient(to right, #ff9f43, #feca57);
+    color: white;
+}
+
+.btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #feca57, #ff9f43);
+}
+
+.btn-danger {
+    background: linear-gradient(to right, #d32f2f, #b71c1c);
+    color: white;
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #b71c1c, #d32f2f);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #ff6b8b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 按钮尺寸 */
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+}
+
+.btn-lg {
+    padding: 15px 30px;
+    font-size: 1.125rem;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+#save-message {
+    display: block;
+    width: 100%;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #ff6b8b, #ff4757);
+    color: white;
+}
+
+#save-message:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #ff4757, #ff6b8b);
+}
+
+/* 倒计时样式 */
+.countdown {
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+}
+
+.countdown h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.timer-box {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.timer-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.timer-box span {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.label {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+/* 响应式优化 - 基础设置 */
+:root {
+    --base-font-size: 16px;
+}
+
+@media (max-width: 1200px) {
+    :root {
+        --base-font-size: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    :root {
+        --base-font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --base-font-size: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --base-font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    :root {
+        --base-font-size: 11px;
+    }
+}
+
+body {
+    font-size: var(--base-font-size);
+}
+
+/* 响应式优化 - 容器 */
+.container {
+    padding: 10px;
+}
+
+@media (min-width: 576px) {
+    .container {
+        padding: 15px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+}
+
+/* 响应式优化 - 头部 */
+header h1 {
+    font-size: 2.5rem;
+}
+
+header .subtitle {
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    header .subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+/* 响应式优化 - 倒计时 */
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: clamp(10px, 3vw, 15px);
+    flex-wrap: wrap;
+}
+
+.timer-box {
+    width: clamp(60px, 15vw, 80px);
+    height: clamp(60px, 15vw, 80px);
+}
+
+.timer-box span {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+}
+
+.label {
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+}
+
+@media (max-width: 768px) {
+    .countdown {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* 响应式优化 - 祝福卡片 */
+.wish-card {
+    width: clamp(280px, 60vw, 320px);
+    height: clamp(380px, 80vw, 450px);
+}
+
+.card-front h2 {
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+}
+
+#wish-message {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+/* 响应式优化 - 相册 */
+.gallery-section {
+    padding: clamp(15px, 3vw, 25px);
+}
+
+.gallery-section h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* 响应式优化 - 表单 */
+.wish-form {
+    width: 100%;
+    max-width: 500px;
+    padding: clamp(15px, 3vw, 25px);
+}
+
+.wish-form h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+/* 响应式优化 - 按钮 */
+.btn {
+    padding: clamp(10px, 2vw, 12px) clamp(20px, 4vw, 24px);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.btn-sm {
+    padding: clamp(6px, 1.5vw, 8px) clamp(12px, 3vw, 16px);
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+}
+
+.btn-lg {
+    padding: clamp(12px, 2.5vw, 15px) clamp(25px, 5vw, 30px);
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+}
+
+/* 响应式优化 - 底部文字 */
+.romantic-text {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+/* 响应式优化 - 当前时间和七夕日期显示 */
+.current-time h3, .next-qixi h3 {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.current-time p, .next-qixi p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+/* 响应式优化 - 触摸目标 */
+@media (max-width: 768px) {
+    /* 确保触摸目标至少48px */
+    .btn, #save-message, .timer-box, .wish-card {
+        min-width: 48px;
+        min-height: 48px;
+    }
+}
+
+/* 响应式优化 - 移动端布局调整 */
+@media (max-width: 768px) {
+    main {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        gap: 20px;
+    }
+}
+
+/* 漂浮的心形 */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b8b;
+    transform: rotate(45deg);
+    opacity: 0.7;
+    animation: floatHeart 8s linear infinite;
+}
+
+.heart:before, .heart:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b8b;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -10px;
+    left: 0;
+}
+
+/* 心形粒子效果 */
+.heart-particle {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: var(--heart-color, #ff6b8b);
+    transform: rotate(45deg);
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1001;
+}
+
+.heart-particle:before, .heart-particle:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--heart-color, #ff6b8b);
+    border-radius: 50%;
+}
+
+.heart-particle:before {
+    top: -5px;
+    left: 0;
+}
+
+.heart-particle:after {
+    top: 0;
+    left: -5px;
+}
+
+/* 漂浮话语效果 */
+.floating-message {
+    position: fixed;
+    top: 100%;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    white-space: nowrap;
+    transform: translateY(0);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* 底部浪漫文字样式 */
+.romantic-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(to right, #ff99cc, #6666ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.romantic-text:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* 3D相册样式 */
+.gallery-section {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+}
+
+/* 相册加载指示器样式 */
+.gallery-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px 40px;
+    border-radius: 10px;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.gallery-section h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.photo-gallery {
+    width: 100%;
+    height: 400px;
+    perspective: 1000px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+}
+
+.gallery-item {
+    position: absolute;
+    width: 60%;
+    height: 80%;
+    left: 20%;
+    top: 10%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* 响应式优化 - 相册 */
+@media (max-width: 768px) {
+    .gallery-item {
+        width: 80%;
+        height: 70%;
+        left: 10%;
+        top: 15%;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item {
+        width: 90%;
+        height: 60%;
+        left: 5%;
+        top: 20%;
+    }
+}
+
+/* 爱情配对测试样式 */
+.love-compatibility {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+}
+
+.love-compatibility h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.compatibility-inputs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.compatibility-inputs input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+#test-compatibility {
+    display: block;
+    width: 100%;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #4a6fa5, #5b86e5);
+    color: white;
+}
+
+#test-compatibility:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #5b86e5, #4a6fa5);
+}
+
+#compatibility-result {
+    margin-top: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.compatibility-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.compatibility-card h4 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.compatibility-score {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #ffeb3b;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 爱情许愿池样式 */
+.wishing-well {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+}
+
+.wishing-well h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+#wish-input {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    resize: none;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+#make-wish {
+    display: block;
+    width: 100%;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #ff9f43, #feca57);
+    color: white;
+}
+
+#make-wish:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #feca57, #ff9f43);
+}
+
+#wishes-container {
+    margin-top: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.wish {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wish-content {
+    flex: 1;
+}
+
+.wish p {
+    margin-bottom: 5px;
+    word-break: break-word;
+}
+
+.wish-date {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    display: block;
+    text-align: right;
+}
+
+.delete-wish {
+    background: rgba(255, 71, 87, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.delete-wish:hover {
+    background: rgba(255, 71, 87, 1);
+    transform: scale(1.1);
+}
+
+.delete-wish i {
+    font-size: 16px;
+}
+
+/* 1. 烟花效果样式 */
+.firework {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: scale(0);
+    z-index: 1001;
+}
+
+.firework-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1002;
+}
+
+/* 2. 藏头诗生成器样式 */
+.acrostic-poem {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    text-align: center;
+}
+
+.acrostic-poem h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+#poem-keywords {
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+#generate-poem, #download-poem {
+    padding: 12px 20px;
+    background: linear-gradient(to right, #ff6b8b, #ff4757);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 5px 15px;
+}
+
+#generate-poem:hover, #download-poem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #ff4757, #ff6b8b);
+}
+
+#poem-result {
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.poem-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.poem-card h4 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.poem-card p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #fff;
+    white-space: pre-line;
+}
+
+.error {
+    color: #ff4757;
+}
+
+/* 爱情记忆卡片样式 */
+.memory-card {
+    width: 200px;
+    height: 250px;
+    perspective: 1000px;
+    margin: 10px;
+    display: inline-block;
+}
+
+.memory-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.memory-card.flipped .memory-card-inner {
+    transform: rotateY(180deg);
+}
+
+.memory-card-front, .memory-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.memory-card-front {
+    background-color: #ff6b8b;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.memory-card-back {
+    background-color: white;
+    color: #333;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.memory-date {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-top: 10px;
+}
+
+.delete-memory {
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.memory-form {
+    margin-bottom: 20px;
+}
+
+.memory-form input[type="text"],
+.memory-form input[type="date"],
+.memory-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.memory-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.memory-form button {
+    background-color: #ff6b8b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.memory-form button:hover {
+    background-color: #ff4d6d;
+}
+
+#memory-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* 缘分红线配对游戏样式 */
+.game-area {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.game-area h3 {
+    color: #ff6b8b;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.game-container {
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+#game-canvas {
+    width: 100%;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.game-button {
+    background-color: #ff6b8b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.game-button:hover {
+    background-color: #ff4d6d;
+}
+
+.game-notification {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 107, 139, 0.9);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .acrostic-poem, .game-area {
+        padding: 15px;
+    }
+
+    #poem-result, #game-canvas {
+        width: 100%;
+        height: auto;
+    }
+
+    .memory-card {
+        width: 150px;
+        height: 200px;
+    }
+}
+
+/* 动画效果 */
+@keyframes floatParticle {
+    0% {
+        transform: translate(0, 0) rotate(45deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty)) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        top: 100%;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        top: -100px;
+        opacity: 0;
+    }
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .compatibility-inputs {
+        flex-direction: column;
+    }
+
+    .love-compatibility, .wishing-well {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .love-compatibility h3, .wishing-well h3 {
+        font-size: 1.3rem;
+    }
+
+    .compatibility-card h4 {
+        font-size: 1rem;
+    }
+
+    .compatibility-score {
+        font-size: 1.5rem;
+    }
+}
+
+.heart:after {
+    top: 0;
+    left: -10px;
+}
+
+/* 星星效果 */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+/* 爱情运势测试样式 */
+.love-fortune {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 20px auto;
+}
+
+.love-fortune h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.fortune-inputs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.fortune-inputs input {
+    flex: 1;
+    min-width: 150px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+#test-fortune {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #5b86e5, #36d1dc);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#test-fortune:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+}
+
+#fortune-result {
+    transition: opacity 0.5s ease;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fortune-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.fortune-card h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.fortune-card p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.fortune-score {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffeb3b;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 音乐控制样式 */
+.music-control {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.music-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #ff6b8b, #ff4757);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 音乐状态样式 */
+.music-status {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background-color: rgba(255, 107, 139, 0.9);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    max-width: 250px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .music-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    .music-status {
+        bottom: 90px;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .music-control, .music-status {
+        right: 20px;
+    }
+    .music-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    .music-status {
+        bottom: 85px;
+        font-size: 0.8rem;
+        max-width: 180px;
+    }
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+    opacity: 0.8;
+}
+
+/* 情侣日历样式 */
+#couple-calendar {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#couple-calendar h3 {
+    text-align: center;
+    color: #ff6b8b;
+    margin-bottom: 10px;
+}
+
+.calendar-week-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.calendar-day-header {
+    width: 14.28%;
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+}
+
+.calendar-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.calendar-day {
+    width: 14.28%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    color: #333; /* 加深文字颜色 */
+    font-weight: 500; /* 增加字重 */
+}
+
+.calendar-day:hover {
+    background-color: #ffebee;
+}
+
+.calendar-day.empty {
+    cursor: default;
+}
+
+.calendar-day.today {
+    background-color: #ff6b8b;
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-day.anniversary {
+    background-color: #ff9ff3;
+    color: white;
+    font-weight: bold;
+}
+
+.anniversary-text {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff4757;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    margin-top: 5px;
+    display: none;
+}
+
+.calendar-day.anniversary:hover .anniversary-text {
+    display: block;
+}
+
+/* 爱情计时器样式 */
+.love-timer {
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.love-timer h4 {
+    color: #ff6b8b;
+    margin-bottom: 10px;
+}
+
+#love-counter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff4757;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes floatHeart {
+    0% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(-100px) rotate(45deg); opacity: 0; }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    .wish-card {
+        width: 280px;
+        height: 400px;
+    }
+    .timer-box {
+        width: 80px;
+        height: 80px;
+    }
+    .timer-box span {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    .wish-card {
+        width: 240px;
+        height: 350px;
+    }
+    .card-front h2 {
+        font-size: 1.5rem;
+    }
+    #wish-message {
+        font-size: 1rem;
+    }
+    .timer-box {
+        width: 60px;
+        height: 60px;
+    }
+    .timer-box span {
+        font-size: 1.2rem;
+    }
+    .label {
+        font-size: 0.8rem;
+    }
+}
+
+/* 加载动画 */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff99cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.loader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-heart {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    transform: rotate(45deg);
+    animation: beat 1.5s infinite;
+}
+
+.loader-heart:before, .loader-heart:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.loader-heart:before {
+    top: -25px;
+    left: 0;
+}
+
+.loader-heart:after {
+    top: 0;
+    left: -25px;
+}
+
+@keyframes beat {
+    0% { transform: rotate(45deg) scale(0.8); }
+    5% { transform: rotate(45deg) scale(0.9); }
+    10% { transform: rotate(45deg) scale(0.8); }
+    15% { transform: rotate(45deg) scale(1); }
+    50% { transform: rotate(45deg) scale(0.8); }
+    100% { transform: rotate(45deg) scale(0.8); }
+}
+
+/* 添加滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* 按钮悬停效果 */
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 文本选择样式 */
+::selection {
+    background-color: rgba(255, 107, 139, 0.8);
+    color: white;
+}
+
+/* 平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
